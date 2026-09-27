@@ -1,0 +1,20 @@
+{
+  "name": "app-test-jest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "jest": "^30.5.2"
+  },
+  "allowScripts": {
+    "unrs-resolver@1.12.2": true,
+    "@parcel/watcher@2.6.0": true
+  }
+}
