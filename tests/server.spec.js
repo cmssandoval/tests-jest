@@ -39,4 +39,22 @@ describe("Operaciones CRUD", () => {
         const status = res.statusCode;
         expect(status).toBe(404);
     });
+    it( "Eliminando un producto", async () => {
+        const jwt = "token";    // Es solo un ejemplo sin aplicación de un token real.
+        const idDeProductoAEliminar = 4;
+        const { body: productos } = await request(server)
+            .delete(`/productos/${idDeProductoAEliminar}`)
+            .set("Authorization", jwt)
+            .send();
+        const ids = productos.map(p => p.id)
+        expect(ids).not.toContain(idDeProductoAEliminar);
+    });
+    it( "Eliminando un producto sin entregar un token", async () => {
+        const idDeProductoAEliminar = 4;
+        const response = await request(server)
+            .delete(`/productos/${idDeProductoAEliminar}`)
+            .send();
+        const status = response.statusCode;
+        expect(status).toBe(400);
+    });
 });
